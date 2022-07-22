@@ -7,8 +7,7 @@ A state of the art real-time object detection system for C# (Visual Studio). Thi
 ## NuGet
 Quick install Alturos.Yolo over [NuGet](https://www.nuget.org/packages/Alturos.Yolo)
 ```
-PM> install-package Alturos.Yolo (C# wrapper and C++ dlls 28MB)
-PM> install-package Alturos.YoloV2TinyVocData (YOLOv2-tiny Pre-Trained Dataset 56MB)
+PM> Install-Package Alturos.YoloV2TinyVocData -Version 1.0.0
 ```
 
 ## Object Detection
@@ -55,12 +54,12 @@ It is important to use GPU mode for fast object detection. It is also important 
 - [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 und 2019 x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 ### GPU requirements (optional)
-It is important to use the mentioned version `10.2`
+It is important to use the mentioned version `11.6`
 
 1) Install the latest Nvidia driver for your graphic device
-2) [Install Nvidia CUDA Toolkit 10.2](https://developer.nvidia.com/cuda-downloads) (must be installed add a hardware driver for cuda support)
-3) [Download Nvidia cuDNN v7.6.5 for CUDA 10.2](https://developer.nvidia.com/rdp/cudnn-download)
-4) Copy the `cudnn64_7.dll` from the output directory of point 2. into the project folder.
+2) [Install Nvidia CUDA Toolkit 11.6](https://developer.nvidia.com/cuda-downloads) (must be installed add a hardware driver for cuda support)
+3) [Download Nvidia cuDNN v8.4.1 for CUDA 11.x](https://developer.nvidia.com/rdp/cudnn-download)
+4) Copy the `cudnn64_8.dll` and other 6 files from the `bin` directory of point 3. into the project folder.
 
 ## Build requirements
 - Visual Studio 2019
@@ -132,14 +131,24 @@ Check graphic device usage `"%PROGRAMFILES%\NVIDIA Corporation\NVSMI\nvidia-smi.
 You should have this files in your program directory.
 
     .
-    ├── Alturos.Yolo.dll              # C# yolo wrapper
+    ├── Alturos.Yolo.dll          # C# yolo wrapper
     ├── yolo_cpp_dll_cpu.dll      # yolo runtime for cpu
     ├── yolo_cpp_dll_gpu.dll      # yolo runtime for gpu
-    ├── cudnn64_7.dll             # required by yolo_cpp_dll_gpu (optional only required for gpu processig)
-    ├── opencv_world340.dll       # required by yolo_cpp_dll_xxx (process image as byte data detect_mat)
+    ├── cudnn64_8.dll             # required by yolo_cpp_dll_gpu (optional only required for gpu processig)
+    ├── cudnn_adv_infer64_8.dll   # required by yolo_cpp_dll_gpu (optional only required for gpu processig)
+    ├── cudnn_adv_train64_8.dll   # required by yolo_cpp_dll_gpu (optional only required for gpu processig)
+    ├── cudnn_cnn_infer64_8.dll   # required by yolo_cpp_dll_gpu (optional only required for gpu processig)
+    ├── cudnn_cnn_train64_8.dll   # required by yolo_cpp_dll_gpu (optional only required for gpu processig)
+    ├── cudnn_ops_infer64_8.dll   # required by yolo_cpp_dll_gpu (optional only required for gpu processig)
+    ├── cudnn_ops_train64_8.dll   # required by yolo_cpp_dll_gpu (optional only required for gpu processig)
+    ├── opencv_world460.dll       # required by yolo_cpp_dll_xxx (process image as byte data detect_mat)
     ├── pthreadGC2.dll            # required by yolo_cpp_dll_xxx (POSIX Threads)
     ├── pthreadVC2.dll            # required by yolo_cpp_dll_xxx (POSIX Threads)
+    ├── zlibwapi.dll              # required by yolo_cpp_dll_xxx (POSIX Threads)
     ├── msvcr100.dll              # required by pthread (POSIX Threads)
+    ├── voc.names                 # yolo pre-trained data class names
+    ├── yolov2-tiny-voc.cfg       # yolo pre-trained data configuration
+    ├── yolov2-tiny-voc.weights   # yolo pre-trained data weights
 
 ## Annotation Tool
 
