@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Condition="'$(OS)' != 'Unix'">
-    <None Include="$(MSBuildThisFileDirectory)/../runtimes/win-x64/native/opencv_world411.dll">
-      <Link>opencv_world411.dll</Link>
+    <None Include="$(MSBuildThisFileDirectory)/../runtimes/win-x64/native/opencv_world460.dll">
+      <Link>opencv_world460.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)/../runtimes/win-x64/native/zlibwapi.dll">
+      <Link>zlibwapi.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)/../runtimes/win-x64/native/yolo_cpp_dll_cpu.dll">

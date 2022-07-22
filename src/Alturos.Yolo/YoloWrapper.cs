@@ -23,7 +23,7 @@ namespace Alturos.Yolo
         #region DllImport Cpu
 
         [DllImport(YoloLibraryCpu, EntryPoint = "init")]
-        private static extern int InitializeYoloCpu(string configurationFilename, string weightsFilename, int gpuIndex);
+        internal static extern int InitializeYoloCpu(string configurationFilename, string weightsFilename, int gpuIndex, int batchSize = 1);
 
         [DllImport(YoloLibraryCpu, EntryPoint = "detect_image")]
         internal static extern int DetectImageCpu(string filename, ref BboxContainer container);
@@ -42,7 +42,7 @@ namespace Alturos.Yolo
         #region DllImport Gpu
 
         [DllImport(YoloLibraryGpu, EntryPoint = "init")]
-        internal static extern int InitializeYoloGpu(string configurationFilename, string weightsFilename, int gpuIndex);
+        internal static extern int InitializeYoloGpu(string configurationFilename, string weightsFilename, int gpuIndex, int batchSize = 1);
 
         [DllImport(YoloLibraryGpu, EntryPoint = "detect_image")]
         internal static extern int DetectImageGpu(string filename, ref BboxContainer container);

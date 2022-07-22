@@ -30,7 +30,7 @@ namespace Alturos.Yolo
             report.MicrosoftVisualCPlusPlusRedistributableExists = this.IsMicrosoftVisualCPlusPlus2017Available();
 #endif
 
-            if (File.Exists("cudnn64_7.dll"))
+            if (File.Exists("cudnn64_8.dll"))
             {
                 report.CudnnExists = true;
             }
@@ -40,7 +40,7 @@ namespace Alturos.Yolo
             {
                 report.CudaExists = true;
             }
-            if (envirormentVariables.Contains("CUDA_PATH_V10_2"))
+            if (envirormentVariables.Contains("CUDA_PATH_V11_6"))
             {
                 report.CudaExists = true;
             }
